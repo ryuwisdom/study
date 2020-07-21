@@ -1,22 +1,26 @@
-const btn1 = document.querySelector("#btn-1");
-const btn2 = document.querySelector("#btn-2");
-const btn3 = document.querySelector("#btn-3");
-const btn4 = document.querySelector("#btn-4");
+function sum(a, b, c) {
+    console.log(a * b / c);
+}
+sum(5, 6, 7);
+
+//함수 제작 
+//circle의 색깔을 넘겨받은 값으로 바꿔주는 함수 제작 
+
 const circle = document.querySelector("#circle");
 
-btn1.addEventListener('click', () => {
-    circle.style.background = "red";
+function change(color) {
+    // console.log(color);
+    circle.style.background = color
+}
+// change('pink');
 
-})
-btn2.addEventListener('click', () => {
-    circle.style.background = "yellow";
 
-})
-btn3.addEventListener('click', () => {
-    circle.style.background = "green";
+//함수 제작, 넘겨받은 값으로 circle안에 글자를 입력해주는 함수 
+//함수 이름 = write
 
-})
-btn4.addEventListener('click', () => {
-    circle.style.background = "blue";
+function textWrite(hobby, color, name) {
+    circle.innerText = `제이름은 ${name}이고 취미는 ${hobby}입니다.`
+    circle.style.background = color
 
-})
+}
+textWrite('컴퓨터', 'green', 'jihye')

@@ -12,23 +12,32 @@
             height: 200px;
             background-color: #333;
             margin-top: 5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: aliceblue;
+
         }
     </style>
 </head>
 
 <body>
 
-    <button id='btn-1'>빨강</button>
-    <button id='btn-2'>주황</button>
-    <button id='btn-3'>노랑</button>
-    <button id='btn-4'>초록</button>
+    <button id='btn-1' onclick="textWrite('*_*','안녕','red')">Red</button>
+    <button id='btn-2' onclick="textWrite('*_*','반가워','yellow')">Yellow</button>
+    <button id='btn-3' onclick="textWrite('*_*','나는','green')">Green</button>
+    <button id='btn-4' onclick="textWrite('*_*','보니야','blue')">Blue</button>
+    <!-- <button id='btn-1' onclick="change('red')">Red</button>
+    <button id='btn-2' onclick="change('yellow')">Yellow</button>
+    <button id='btn-3' onclick="change('green')">Green</button>
+    <button id='btn-4' onclick="change('blue')">Blue</button> -->
     <div id="circle">
+
 
     </div>
 
-    <script src="js/function.js">
-
-    </script>
+    <script src="js/function.js"></script>
+    <!-- <script src="js/event.js"></script> -->
 </body>
 
 </html>
