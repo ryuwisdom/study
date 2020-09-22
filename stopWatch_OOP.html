@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //작동원리
+
+        //StopWatch = 객체명
+        //start버튼을 누르면 객체의 초가 1초씩 증가
+        //stop버튼 누르면 객체가 멈춤
+        //reset버튼을 누르면 객체가 초기화된다.
+
+        function StopWatch(screen, design, event){
+            this.screen = screen
+            this.design = design
+            this.event = function(){
+                document.addEventListener("click",{
+                    // setInterval(() => {
+                        
+                    // }, 1000);
+                })                
+            }
+            this.start = function(){
+                //start버튼을 누른다.
+            },
+            this.stop = function(){
+                //stop버튼을 누른다.
+            },
+            this.reset = function(){
+                //reset버튼을 누른다.
+            }
+
+        }
+
+
+
+    </script>
+</body>
+</html>

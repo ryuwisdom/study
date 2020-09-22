@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시험성적</title>
+</head>
+
+<body>
+    <div class="result">
+
+        <label>시험성적 변환기</label>
+        <input id="writeScore" type="text">
+        <button id="summit">변환</button>
+        <h1 id="result"></h1>
+
+        <p>참고<br>90 ~ 100점 = A<br> 80 ~ 89점 = B <br> 70 ~ 79점 = C<br> 60 ~ 69점 = D<br> 나머지 = F</p>
+    </div>
+
+    <script>
+        //인풋창에 점수를 입력하고 버튼을 눌렀을때
+        //입력한 점수와 
+        //시험점수 조건을 비교한 후 성적이 출력된다.
+
+        const summitBtn = document.querySelector("#summit")
+        const testGrade = document.querySelector("#result")
+
+        function getgrade() {
+            if (90 <= score) {
+                testGrade.innerHTML = 'A'
+            } else if (80 <= score) {
+                testGrade.innerHTML = 'B'
+            } else if (70 <= score) {
+                testGrade.innerHTML = 'C'
+            } else if (60 <= score) {
+                testGrade.innerHTML = 'D'
+            } else {
+                testGrade.innerHTML = 'F'
+            }
+        }
+
+        function result() {
+            const insertGrade = document.querySelector("#writeScore").value;
+            score = insertGrade;
+            getgrade()
+
+        }
+
+        summitBtn.addEventListener("click", result)
+
+
+
+
+        
+    </script>
+</body>
+
+</html>

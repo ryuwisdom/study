@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy object</title>
+</head>
+
+<body>
+    <script>
+        // 현재 내가 알고있는 개념 
+
+        const jihye = {
+            otherName: "bonnie",
+            age: 28,
+            likes: ["book", "cooking", "traveling"]
+        }
+
+         const add = {
+             otherName : "kato"
+         }
+
+
+        // ES6 Object.assign() 사용 
+
+        // 동일한 키가 존재할 경우 대상 객체의 속성은 출처 객체의 속성으로 덮어쓰여진다.
+         //반환값 : target
+
+        // merging objects
+        
+        // Object.assign(target(대상객체), source(출처 개체));
+        const target = {a : "apple", b : "banana"};
+        const source = {b : "brownie", d : "dragon fruit"};
+
+        const returnTarget = Object.assign(target, source);
+
+        console.log(target); // result changed
+        console.log(source); // result is not changed
+
+        console.log(returnTarget); // target object itself is changed.
+
+         // Merging objects with same properties
+         
+
+         const requires1 = {a: "front-end", b: "HTML", c: "typescript"}
+         const requires2 = {b: "javascript", c: "JAVA"}
+         const requires3 = {c: "SASS"}
+
+         const require = Object.assign({}, requires1, requires2, requires3);
+         console.log(require); // {a: "front-end", b: "javascript", c: "SASS"}
+         console.log(requires2);
+        //1. Shallow Copy(shallow clone, 얕은 복사, 참조 복사)
+
+        // 일반적인 방법(?)
+        const me = jihye
+        
+        console.log(me);
+
+        jihye.likes.push("☕")
+
+
+          // 1-1.  ES6 Object.assign() 사용한 얕은 복사
+          const obj = {a:"red", b: "orange"};
+          const copy = Object.assign({}, obj);
+          console.log(copy);
+
+
+        // 2. Deep Copy(깊은 복사)
+
+        // 기존에 값
+        console.log(jihye);
+        console.log(me);
+
+        // jihye 객체 값 변경
+
+        let changedObj = JSON.parse(JSON.stringify(jihye))
+        jihye.age = 3; // 값 변경하여도
+        console.log(changedObj); //기존값 그대로 
+
+
+        // 2-1. ES6 spread operator를 이용한 deep copy
+
+        // 기존의 값을 변경한 객체 가져올 변수 생성
+        const copied = {
+            ...jihye
+        }
+        jihye.age = 10;
+        jihye.likes.pop();
+
+       
+        // 초기의 값만 복사(깊은복사)
+        console.log(copied);
+
+        // 변경된 사항까지 반영하여 복사
+        console.log(jihye);
+    </script>
+</body>
+
+</html>

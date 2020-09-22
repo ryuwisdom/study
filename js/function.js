@@ -38,12 +38,13 @@ function textWrite(name, hobby, color) {
 
 // hello('bonnie');
 
-const add = (a, b) => a * b;
-const sum = add(2, 3);
-console.log(sum);
+// const add = (a, b) => a * b;
+// const sum = add(2, 3);
+// console.log(sum);
 
 
 // 점수 매기기
+// const grade = getGrade(85);
 // function getGrade(score){
 //     if(score ===100){
 //         return 'A+';
@@ -58,6 +59,20 @@ console.log(sum);
 //     }
 // }
 
-// const grade = getGrade(85);
 // console.log(grade);
 
+const grade = getGrade(60);
+function getGrade(score){
+    if(90<= score ){
+        return 'A';
+    } else if (85<= score <=89){
+        return 'B';
+    } else if (70<= score <=79){
+        return  'C';
+    } else if (60<= score <=69){
+        return  'D';
+    } else {
+        return  'F';
+    }
+}
+console.log(grade);

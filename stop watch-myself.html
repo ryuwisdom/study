@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop-Watch in my self</title>
+</head>
+
+<!-- 
+    스탑워치 초기 설계
+    0. stopwatch 원리 이해
+        0-1) 모든 단위는 초기값(00)으로 시작/ 버튼(start, stop, reset) 구성, 역할 
+        0-2) start버튼을 누르면 초기값이 00인 상태에서 1초씩 증가한다. setInterval()
+             초(sec)가 59초가 될때마다 분(min)이 1분씩 증가한다. 
+             분(min)가 59분이 될때마다 시(hour)가 1시간씩 증가한다. 
+        0-3) stop버튼을 누르면 초/분/시가 멈춘다. clearInterval ()
+        0-4) reset버튼
+             stop버튼이 눌려졌을때 reset버튼을 누르면 초/분/시가 초기값(00)으로 설정된다.
+    1. html 공간 구상
+        1-1) 전체 layout, 시계표시 공간, 버튼생성 공간
+        1-2) 각 공간에 식별자 할당
+
+    2. script작성
+        
+    3. css작성
+ -->
+<body>
+    <div class="container">
+        <div class="time">
+            <!-- 0-1) 모든 단위는 초기값(00)으로 시작 -->
+            <span id="hour">00</span>:<span id="min">00</span>:<span id="sec">00</span>
+        </div>
+        <div class="btn">
+            <button id="start">start</button>
+            <button id="stop">stop</button>
+            <button id="reset">reset</button>
+        </div>
+
+    </div>
+
+    <script>
+        //  0-2) start버튼을 누르면 초기값이 00인 상태에서 1초씩 증가한다.
+        const startBtn = document.querySelector("#start")
+        const stopBtn = document.querySelector("#stop")
+        const resetBtn = document.querySelector("#reset")
+
+        const sec = document.querySelector("#sec")
+        const min = document.querySelector("#min")
+        const hour = document.querySelector("#hour")
+
+        let seconds = 0
+        let minutes = 0
+        let hours = 0
+        let intervalId = 0
+        let stopState = true
+        
+        
+        //start
+        
+        function start() {
+            if(stopState == false) {
+                return
+            }
+
+
+            stopState = false
+            
+
+            intervalId = setInterval(function(){
+                //초
+                if(seconds<9){
+                 sec.innerHTML = `0${++seconds}`
+             
+                }else {
+                 sec.innerHTML = `${++seconds}`
+             
+                }
+                //분
+                if(seconds==59){
+                //  min.innerHTML = `${++minutes}`
+                
+                if(minutes>=9){
+                    min.innerHTML = `${++minutes}`
+                }else {
+                    min.innerHTML = `0${++minutes}`
+                }
+                seconds =0
+           
+            }
+
+                //시
+                if(minutes==59){
+                //  min.innerHTML = `${++minutes}`
+                
+                if(hours>=9){
+                    hour.innerHTML = `${++hours}`
+                }else {
+                hour.innerHTML = `0${++hours}`
+                }
+                
+                minutes =0
+                
+                }
+
+
+            },100)
+            
+        }
+
+
+        //stop
+
+        function stop() {
+            stopState = true
+            clearInterval(intervalId)
+        }
+        
+
+
+        // reset 
+
+        function reset () {
+            if(stopState == true) {
+                seconds = 0
+                minutes = 0
+                hours = 0
+                sec.innerHTML = `00`
+                min.innerHTML = `00`
+                hour.innerHTML = `00`
+            }
+           
+
+        }
+
+
+        startBtn.addEventListener("click",start)
+        stopBtn.addEventListener("click",stop)
+        resetBtn.addEventListener("click",reset)
+
+
+
+        
+    </script>
+</body>
+</html>
